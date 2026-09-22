@@ -1,5 +1,5 @@
 export interface Car {
-  vin: number;
+  vin: string;
   name: string;
   madeIn: string;
   carModel: string;
