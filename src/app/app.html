@@ -1,8 +1,17 @@
-<h1>My first Assignment</h1>
+<div class="container">
+  <h2>Car List</h2>
 
-<h2>HElooooooo</h2>
+  @for (car of carList; track car.vin) {
+    <div class="car-card">
+      <h3>{{ car.name }}</h3>
+      <p>{{ car.madeIn }}</p>
+      <p>{{ car.carModel }}</p>
 
-<p>name: {{name}}</p>
-<p>Age: {{age}}</p>
-
-
+      @if (car.colour) {
+        <p>Colour: {{car.colour}}</p>
+      }
+    </div>
+  } @empty {
+    <p>No available </p>
+  }
+    </div>
