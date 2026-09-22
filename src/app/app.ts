@@ -1,0 +1,15 @@
+import { Component, signal } from '@angular/core';
+import { RouterOutlet } from '@angular/router';
+
+@Component({
+  imports: [RouterOutlet],
+  selector: 'app-root',
+  styleUrl: './app.css',
+  templateUrl: './app.html',
+})
+export class App {
+  name= "Edgar";
+  age= 22;
+
+  protected readonly title = signal('Edgar-Mandar-Learning-AngularF26');
+}
