@@ -1,8 +1,10 @@
 <div class="car-list">
   <h2>Carlist</h2>
   @for (car of carList ; track car.vin) {
-<app-car-list-item [car]="car" />
+<app-car-list-item [car]="car"
+(contentEvent)="carEvent($event)"/>
   } @empty {
+
     <p>NO CARRRSSSSSSSS!</p>
 
   }

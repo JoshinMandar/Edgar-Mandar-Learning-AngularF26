@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import {Car} from '../model/car';
-import {CarListItem} from '../car-list-item/car-list-item';
+import {CarListItem, ContentEvent} from '../car-list-item/car-list-item';
 
 @Component({
   imports: [
@@ -14,41 +14,42 @@ import {CarListItem} from '../car-list-item/car-list-item';
 export class CarList {
   carList: Car [] = [
     {
+      id:1,
       vin: '1234567890',
       name: 'Rav4',
       madeIn: 'Japan',
       carModel:'Toyota',
       colour: 'gray',
     },
-    {
+    { id:2,
       vin: '1234567890',
       name: 'supra',
       madeIn: 'Japan',
       carModel:'Toyota',
       colour: 'blue',
     },
-    {
+    { id:3,
       vin: '1234567890',
       name: 'Nissan GT R',
       madeIn: 'Japan',
       carModel:'Nissan',
       colour: 'white',
     },
-    {
+    {id:4,
       vin: '1234567890',
       name: 'Raptor',
       madeIn: 'USA',
       carModel:'Ford',
       colour: 'black',
     },
-    {
+    { id:5,
       vin: '1234567890',
       name: 'M5',
       madeIn: 'Germany',
       carModel:'bmw',
       colour: 'black',
     },
-    {
+    {id:6,
       vin: '1234567890',
       name: 'Civic ',
       madeIn: 'Japan',
@@ -56,6 +57,8 @@ export class CarList {
       colour: 'Black',
     },
   ];
+  carEvent(event: ContentEvent): void {
+    console.log(event)
+  }
 
-  protected readonly Cache = Cache;
 }

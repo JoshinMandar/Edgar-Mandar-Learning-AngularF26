@@ -1,4 +1,5 @@
 export interface Car {
+  id: number;
   vin: string;
   name: string;
   madeIn: string;
