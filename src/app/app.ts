@@ -12,6 +12,7 @@ import {CarList} from './car-list/car-list';
 })
 export class App {
   protected title = 'Car type';
+  protected carList: any;
 }
 
  /* protected carList: Car [] = [
