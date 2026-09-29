@@ -1,8 +1,11 @@
 import { Component } from '@angular/core';
 import {Car} from '../model/car';
+import {CarListItem} from '../car-list-item/car-list-item';
 
 @Component({
-  imports: [],
+  imports: [
+    CarListItem
+  ],
   selector: 'app-car-list',
   styleUrl: './car-list.css',
   templateUrl: './car-list.html',
@@ -54,4 +57,5 @@ export class CarList {
     },
   ];
 
+  protected readonly Cache = Cache;
 }

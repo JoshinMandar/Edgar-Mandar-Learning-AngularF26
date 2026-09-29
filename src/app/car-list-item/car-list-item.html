@@ -1,1 +1,17 @@
-<p>car-list-item works!</p>
+<div class="Car-card">
+  <h3>{{car().name}}</h3>
+
+  @switch (car().carModel) {
+    @case ('Honda') { <span class="badge honda">Civic </span> }
+    @case ('Toyota') { <span class="badge honda">Supra </span> }
+    @case ('Ford') { <span class="badge honda">Raptors </span> }
+    @default {
+      <span class="badge">Others</span>
+    }
+  }
+    @if (car().colour) {
+      <p class="Colour">Car Colour Available</p>
+    } @else {
+      <p class="Not Availabe">Not Avaialbe</p>
+    }
+</div>

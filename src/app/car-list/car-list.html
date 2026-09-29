@@ -1,1 +1,9 @@
-<p>car-list works!</p>
+<div class="car-list">
+  <h2>Carlist</h2>
+  @for (car of carList ; track car.vin) {
+<app-car-list-item [car]="car" />
+  } @empty {
+    <p>NO CARRRSSSSSSSS!</p>
+
+  }
+</div>

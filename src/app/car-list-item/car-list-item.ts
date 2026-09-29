@@ -9,4 +9,5 @@ import {Car} from '../model/car';
 })
 export class CarListItem {
   car = input.required<Car>();
+  protected readonly name = name;
 }
