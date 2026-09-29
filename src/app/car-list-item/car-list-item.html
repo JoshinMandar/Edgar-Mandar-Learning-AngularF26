@@ -1,10 +1,10 @@
-<div class="Car-card" (click)="openCar()" )>
+<div class="Car-card" (click)="openCar()">
   <h3>{{car().name}}</h3>
 
   @switch (car().carModel) {
-    @case ('Honda') { <span class="badge honda">Civic </span> }
-    @case ('Toyota') { <span class="badge honda">Supra </span> }
-    @case ('Ford') { <span class="badge honda">Raptors </span> }
+    @case ('Honda') { <span class="Honda">Civic </span> }
+    @case ('Toyota') { <span class="Toyota">Supra </span> }
+    @case ('Ford') { <span class="Ford">Raptors </span> }
     @default {
       <span class="badge">Others</span>
     }
