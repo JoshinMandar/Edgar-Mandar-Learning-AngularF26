@@ -5,5 +5,5 @@ export interface Car {
   madeIn: string;
   carModel: string;
   colour: string;
-  //image: string;
+    //image: string;
 }

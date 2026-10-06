@@ -2,7 +2,7 @@ import {Component, input,output} from '@angular/core';
 import {Car} from '../model/car';
 export interface ContentEvent {
   id: number;
-  action: 'opened' | 'favourited';
+
 }
 
 
@@ -16,11 +16,12 @@ export class CarListItem {
   car = input.required<Car>();
   contentEvent = output<ContentEvent>();
 
-  openCar(): void {
-    this.contentEvent.emit({
-      id: this.car().id, action: 'opened',
 
+  removeCar() {
+    this.contentEvent.emit({
+      id: this.car().id
     });
+
   }
 }
 

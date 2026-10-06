@@ -1,17 +1,17 @@
-<div class="Car-card" (click)="openCar()">
-  <h3>{{car().name}}</h3>
+  <div class="Car-card" (click)="removeCar()">
+    <h3>{{car().name}}</h3>
 
-  @switch (car().carModel) {
-    @case ('Honda') { <span class="Honda">Civic </span> }
-    @case ('Toyota') { <span class="Toyota">Supra </span> }
-    @case ('Ford') { <span class="Ford">Raptors </span> }
-    @default {
-      <span class="badge">Others</span>
+    @switch (car().carModel) {
+      @case ('Honda') { <span class="Honda">Civic </span> }
+      @case ('Toyota') { <span class="Toyota">Supra </span> }
+      @case ('Ford') { <span class="Ford">Raptors </span> }
+      @default {
+        <span class="badge">Others</span>
+      }
     }
-  }
-    @if (car().colour) {
-      <p class="Colour">Car Colour Available</p>
-    } @else {
-      <p class="Not Availabe">Not Avaialbe</p>
-    }
-</div>
+      @if (car().colour) {
+        <p class="Colour">Car Colour Available</p>
+      } @else {
+        <p class="Not Availabe">Not Avaialbe</p>
+      }
+  </div>
