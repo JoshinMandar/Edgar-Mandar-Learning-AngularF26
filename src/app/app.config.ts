@@ -1,6 +1,8 @@
 import { ApplicationConfig, provideBrowserGlobalErrorListeners,InjectionToken } from '@angular/core';
 import { provideRouter } from '@angular/router';
 import { routes } from './app.routes';
+import {MockContentService} from './service/MockContentService';
+import {carList} from './service/car';
 
 export  interface AppConfig {
   apiBaseURL: string;
@@ -12,12 +14,17 @@ export const USER_TOKEN =new InjectionToken<AppConfig>('App.config');
 
 export const appConfig: ApplicationConfig = {
   providers: [
-    {provide: USER_TOKEN,
+    {provide:USER_TOKEN,
     useValue: {
       apiBaseURL: 'htpps://asdvasdfasd',
       App: 'all',
-    }},
+    }
+    },
+
+    { provide :carList, useClass: MockContentService },
     provideBrowserGlobalErrorListeners(),
     provideRouter(routes)
+
+
   ]
 };

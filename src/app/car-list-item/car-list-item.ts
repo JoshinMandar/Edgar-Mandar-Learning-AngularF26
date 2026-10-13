@@ -4,8 +4,6 @@ export interface ContentEvent {
   id: number;
 
 }
-
-
 @Component({
   imports: [],
   selector: 'app-car-list-item',

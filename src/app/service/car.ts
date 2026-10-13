@@ -1,9 +1,9 @@
-import {computed, effect, inject, Service, signal} from '@angular/core';
+import {computed, effect, inject, Injectable, Service, signal} from '@angular/core';
 import {Car} from '../model/car';
 import {vi} from 'vitest';
 import {USER_TOKEN} from '../app.config';
 
-@Service()
+@Injectable()
 export class carList {
   private config = inject(USER_TOKEN);
 
