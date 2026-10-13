@@ -12,4 +12,7 @@
   @for (car of blackCars(); track car.vin) {
     <p>{{ car.name }} - {{ car.colour }}</p>
   }
+  <p class="data-source">
+    Data source (placeholder): {{ config.apiBaseURL }}
+  </p>
 </div>

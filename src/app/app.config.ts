@@ -12,6 +12,11 @@ export const USER_TOKEN =new InjectionToken<AppConfig>('App.config');
 
 export const appConfig: ApplicationConfig = {
   providers: [
+    {provide: USER_TOKEN,
+    useValue: {
+      apiBaseURL: 'htpps://asdvasdfasd',
+      App: 'all',
+    }},
     provideBrowserGlobalErrorListeners(),
     provideRouter(routes)
   ]

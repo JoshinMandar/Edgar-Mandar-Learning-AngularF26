@@ -1,6 +1,7 @@
 import { Component, inject} from '@angular/core';
 import {CarListItem, ContentEvent} from '../car-list-item/car-list-item';
 import {carList} from '../service/car';
+import {USER_TOKEN,} from '../app.config';
 
 @Component({
   imports: [
@@ -24,4 +25,5 @@ export class CarList {
   protected readonly CarList = carList;
   protected blackCars = this.service.blackCars
   protected blackCarCount = this.service.blackCarCount
+  protected config = inject(USER_TOKEN);
 }

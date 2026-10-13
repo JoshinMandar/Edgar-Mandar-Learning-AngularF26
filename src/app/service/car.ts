@@ -1,9 +1,12 @@
-import {computed,effect, Service, signal} from '@angular/core';
+import {computed, effect, inject, Service, signal} from '@angular/core';
 import {Car} from '../model/car';
 import {vi} from 'vitest';
+import {USER_TOKEN} from '../app.config';
 
 @Service()
 export class carList {
+  private config = inject(USER_TOKEN);
+
   private car = signal<Car[]>([
     {
       id: 1,
@@ -12,6 +15,7 @@ export class carList {
       madeIn: 'Japan',
       carModel: 'Toyota',
       colour: 'gray'
+
 
     },
     {
