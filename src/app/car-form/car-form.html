@@ -1,1 +1,36 @@
-<p>car-form works!</p>
+<h2>Add Car</h2>
+
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+  <div>
+    <label>VIN <input formControlName="vin" /></label>
+    @if (form.controls.vin.touched) {
+      @if (form.controls.vin.hasError('required')) {
+        <p class="error">VIN is required.</p>
+      }
+      @if (form.controls.vin.hasError('minlength')) {
+        <p class="error">VIN must be at least 5 characters.</p>
+      }
+    }
+  </div>
+
+  <div>
+    <label>Name <input formControlName="name" /></label>
+    @if (form.controls.name.touched && form.controls.name.hasError('required')) {
+      <p class="error">Name is required.</p>
+    }
+  </div>
+
+  <div>
+    <label>Made in <input formControlName="madeIn" /></label>
+  </div>
+
+  <div>
+    <label>Make <input formControlName="carModel" /></label>
+  </div>
+
+  <div>
+    <label>Colour <input formControlName="colour" /></label>
+  </div>
+
+  <button type="submit" [disabled]="form.invalid">Add Car</button>
+</form>
