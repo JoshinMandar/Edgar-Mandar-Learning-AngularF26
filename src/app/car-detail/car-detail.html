@@ -1,0 +1,10 @@
+@if (car(); as c) {
+  <h2>{{ c.name }}</h2>
+  <p>Model: {{ c.carModel }}</p>
+  <p>Made in: {{ c.madeIn }}</p>
+  <p>Colour: {{ c.colour }}</p>
+  <p>VIN: {{ c.vin }}</p>
+} @else {
+  <p>No car found with id {{ id() }}.</p>
+}
+<a routerLink="/cars">Back to list</a>
