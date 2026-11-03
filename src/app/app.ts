@@ -1,21 +1,20 @@
 import { Component } from '@angular/core';
 import {Car} from './model/car';
 import {CarList} from './car-list/car-list';
+import {RouterOutlet} from '@angular/router';
 
 @Component({
   selector: 'app-root',
   styleUrl: './app.css',
   templateUrl: './app.html',
-  imports: [
-    CarList
-  ]
+  imports: [RouterOutlet, CarList],
 })
 export class App {
   protected title = 'Car type';
   protected carList: any;
 }
 
- /* protected carList: Car [] = [
+ /* protected carList: Car []   = [
     {
       vin: '1234567890',
       name: 'Rav4',
