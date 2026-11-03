@@ -1,8 +1,24 @@
-<h1>My first Assignment</h1>
 
-<h2>HElooooooo</h2>
+<div class="container">
+  <h2>Car List</h2>
 
-<p>name: {{name}}</p>
-<p>Age: {{age}}</p>
+  <app-car-list></app-car-list>
 
+  @for (car of carList; track car.vin) {
+    <div class="car-card">
+      <h3>{{ car.name }}</h3>
+      <p>{{ car.madeIn }}</p>
+      <p>{{ car.carModel }}</p>
+
+      @if (car.colour) {
+        <p>Colour: {{car.colour}}</p>
+      }
+    </div>
+    <div class="container">
+      <router-outlet />
+    </div>
+  } @empty {
+    <p>No available </p>
+  }
+</div>
 
