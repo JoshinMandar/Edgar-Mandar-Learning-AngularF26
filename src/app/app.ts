@@ -1,17 +1,17 @@
-import { Component } from '@angular/core';
+import { Component,inject } from '@angular/core';
 import {Car} from './model/car';
 import {CarList} from './car-list/car-list';
-import {RouterOutlet} from '@angular/router';
-
+import {RouterLink, RouterOutlet} from '@angular/router';
+import { EditLock } from './service/edit-lock';
 @Component({
   selector: 'app-root',
   styleUrl: './app.css',
   templateUrl: './app.html',
-  imports: [RouterOutlet, CarList],
+  imports: [RouterOutlet, RouterLink],
 })
 export class App {
   protected title = 'Car type';
-  protected carList: any;
+  protected lock = inject(EditLock);
 }
 
  /* protected carList: Car []   = [

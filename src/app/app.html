@@ -1,24 +1,11 @@
+<nav>
+  <a routerLink="/cars">Cars</a>
+  <a routerLink="/cars/new">Add Car</a>
+  <button type="button" (click)="lock.toggle()">
+    {{ lock.guardEnabled() ? 'Unlock Editing' : 'Lock Editing' }}
+  </button>
+</nav>
 
 <div class="container">
-  <h2>Car List</h2>
-
-  <app-car-list></app-car-list>
-
-  @for (car of carList; track car.vin) {
-    <div class="car-card">
-      <h3>{{ car.name }}</h3>
-      <p>{{ car.madeIn }}</p>
-      <p>{{ car.carModel }}</p>
-
-      @if (car.colour) {
-        <p>Colour: {{car.colour}}</p>
-      }
-    </div>
-    <div class="container">
-      <router-outlet />
-    </div>
-  } @empty {
-    <p>No available </p>
-  }
+  <router-outlet />
 </div>
-

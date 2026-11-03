@@ -15,8 +15,13 @@
 
   <div>
     <label>Name <input formControlName="name" /></label>
-    @if (form.controls.name.touched && form.controls.name.hasError('required')) {
-      <p class="error">Name is required.</p>
+    @if (form.controls.name.touched) {
+      @if (form.controls.name.hasError('required')) {
+        <p class="error">Name is required.</p>
+      }
+      @if (form.controls.name.hasError('blank')) {
+        <p class="error">Name can't be only spaces.</p>
+      }
     }
   </div>
 
@@ -31,6 +36,32 @@
   <div>
     <label>Colour <input formControlName="colour" /></label>
   </div>
+
+  <!-- Bonus: FormArray of features -->
+  <div formArrayName="features">
+    <h3>Features</h3>
+    @for (ctrl of features.controls; track ctrl; let i = $index) {
+      <div class="feature-row">
+        <input [formControlName]="i" placeholder="e.g. Sunroof" />
+        <button type="button" (click)="removeFeature(i)">Remove</button>
+        @if (ctrl.touched) {
+          @if (ctrl.hasError('required')) {
+            <p class="error">Feature can't be empty.</p>
+          }
+          @if (ctrl.hasError('blank')) {
+            <p class="error">Feature can't be only spaces.</p>
+          }
+        }
+      </div>
+    } @empty {
+      <p>No features added yet.</p>
+    }
+    <button type="button" (click)="addFeature()">Add Feature</button>
+  </div>
+
+  @if (form.hasError('nameSameAsMake') && form.controls.name.touched && form.controls.carModel.touched) {
+    <p class="error">Name can't be the same as the make.</p>
+  }
 
   <button type="submit" [disabled]="form.invalid">
     {{ isEdit() ? 'Save Changes' : 'Add Car' }}
