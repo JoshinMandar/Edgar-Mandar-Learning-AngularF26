@@ -2,7 +2,9 @@ import { Component, computed, inject, input, numberAttribute } from '@angular/co
 import { RouterLink } from '@angular/router';
 import { carList } from '../service/car';
 @Component({
-  imports: [],
+  imports: [
+    RouterLink
+  ],
   selector: 'app-car-detail',
   styleUrl: './car-detail.css',
   templateUrl: './car-detail.html',

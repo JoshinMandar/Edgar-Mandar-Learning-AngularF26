@@ -75,6 +75,10 @@ export class carList {
 
   addCar(c: Car) {
     this.car.update(list => [...list, c])
+
+  }
+  updateCar(updated: Car) {
+    this.car.update(list => list.map(c => (c.id === updated.id ? updated : c)));
   }
 
   removeCar(id: number) {

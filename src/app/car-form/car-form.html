@@ -1,4 +1,4 @@
-<h2>Add Car</h2>
+<h2>{{ isEdit() ? 'Edit Car' : 'Add Car' }}</h2>
 
 <form [formGroup]="form" (ngSubmit)="onSubmit()">
   <div>
@@ -32,5 +32,7 @@
     <label>Colour <input formControlName="colour" /></label>
   </div>
 
-  <button type="submit" [disabled]="form.invalid">Add Car</button>
+  <button type="submit" [disabled]="form.invalid">
+    {{ isEdit() ? 'Save Changes' : 'Add Car' }}
+  </button>
 </form>

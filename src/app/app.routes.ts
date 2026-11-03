@@ -6,6 +6,7 @@ import { CarForm } from './car-form/car-form';
 export const routes: Routes = [
   { path: '', redirectTo: 'cars', pathMatch: 'full' },
   { path: 'cars', component: CarList },
-  { path: 'cars/new', component: CarForm },   // must be above cars/:id
+  { path: 'cars/new', component: CarForm },
+  { path: 'cars/edit/:id', component: CarForm },   // new
   { path: 'cars/:id', component: CarDetail },
 ];
