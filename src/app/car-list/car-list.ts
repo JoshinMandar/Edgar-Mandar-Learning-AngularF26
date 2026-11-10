@@ -19,7 +19,7 @@ export class CarList {
 
 
   carEvent(event: ContentEvent): void {
-    console.log(event)
+    this.service.removeCar(event.id);
   }
 
   protected readonly CarList = carList;

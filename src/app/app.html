@@ -4,6 +4,9 @@
   <button type="button" (click)="lock.toggle()">
     {{ lock.guardEnabled() ? 'Unlock Editing' : 'Lock Editing' }}
   </button>
+  @if (loading.isLoading()) {
+    <span>Loading....................</span>
+  }
 </nav>
 
 <div class="container">

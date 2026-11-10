@@ -2,6 +2,8 @@ import { ApplicationConfig, provideBrowserGlobalErrorListeners,InjectionToken } 
 import { provideRouter, withComponentInputBinding } from '@angular/router';
 import { routes } from './app.routes';
 import {carList} from './service/car';
+import { provideHttpClient, withInterceptors } from '@angular/common/http';
+import { loadingInterceptor } from './loading-interceptor';
 
 export  interface AppConfig {
   apiBaseURL: string;
@@ -23,7 +25,8 @@ export const appConfig: ApplicationConfig = {
     carList,
     provideBrowserGlobalErrorListeners(),
     provideRouter(routes),
-    provideRouter(routes, withComponentInputBinding())
+    provideRouter(routes, withComponentInputBinding()),
+    provideHttpClient(withInterceptors([loadingInterceptor]))
 
   ]
 };

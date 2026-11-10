@@ -34,7 +34,7 @@ export class CarForm {
 
   form = this.fb.nonNullable.group(
     {
-      vin: ['', [Validators.required, Validators.minLength(5)]],
+      vin: ['', [Validators.minLength(5)]],
       name: ['', [Validators.required, notBlank]],
       madeIn: ['Japan'],
       carModel: ['Toyota'],
@@ -59,29 +59,29 @@ export class CarForm {
     this.features.removeAt(index);
   }
 
+
+  private editingCar = computed(() => {
+    const rawId = this.id();
+    if (rawId === undefined) return undefined;
+    return this.service.carList().find(c => c.id === Number(rawId));
+  });
+
   constructor() {
     effect(() => {
-      const rawId = this.id();
-      if (rawId === undefined) return;
-
-      const car = untracked(() =>
-        this.service.carList().find(c => c.id === Number(rawId))
-      );
-      if (car) {
+      const car = this.editingCar();
+      if (!car) return;
+      untracked(() => {
         this.form.patchValue({
-          vin: car.vin??'',
+          vin: car.vin ?? '',
           name: car.name,
-          madeIn: car.madeIn??'',
+          madeIn: car.madeIn ?? '',
           carModel: car.carModel,
-          colour: car.colour??'',
-        });
-
+          colour: car.colour ?? '',});
         this.features.clear();
         car.features?.forEach(f => this.addFeature(f));
-      }
+      });
     });
   }
-
   onSubmit() {
     if (this.form.invalid) return;
     const value = this.form.getRawValue();
@@ -93,7 +93,7 @@ export class CarForm {
       this.router.navigate(['/cars', id]);
     } else {
       const list = this.service.carList();
-      const id = list.length ? Math.max(...list.map(c => c.id)) + 1 : 1;
+      const id = Math.min(0, ...list.map(c => c.id)) - 1;
       this.service.addCar({ id, ...value });
       this.form.reset();
       this.features.clear();
