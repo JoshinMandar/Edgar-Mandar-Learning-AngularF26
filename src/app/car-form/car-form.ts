@@ -69,11 +69,11 @@ export class CarForm {
       );
       if (car) {
         this.form.patchValue({
-          vin: car.vin,
+          vin: car.vin??'',
           name: car.name,
-          madeIn: car.madeIn,
+          madeIn: car.madeIn??'',
           carModel: car.carModel,
-          colour: car.colour,
+          colour: car.colour??'',
         });
 
         this.features.clear();

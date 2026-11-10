@@ -1,9 +1,9 @@
 @if (car(); as c) {
   <h2>{{ c.name }}</h2>
   <p>Model: {{ c.carModel }}</p>
-  <p>Made in: {{ c.madeIn }}</p>
-  <p>Colour: {{ c.colour }}</p>
-  <p>VIN: {{ c.vin }}</p>
+  @if (c.madeIn) {<p>Made in: {{ c.madeIn }}</p>}
+  @if (c.colour) {<p>Colour: {{ c.colour }}</p>}
+  @if (c.vin) {<p>VIN: {{ c.vin }}</p>}
 
   @if (c.features?.length) {
     <h3>Features</h3>

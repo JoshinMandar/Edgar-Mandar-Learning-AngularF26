@@ -16,7 +16,7 @@ export const appConfig: ApplicationConfig = {
   providers: [
     {provide:USER_TOKEN,
     useValue: {
-      apiBaseURL: 'htpps://asdvasdfasd',
+      apiBaseURL: 'https://vpic.nhtsa.dot.gov/api/vehicles',
       App: 'all',
     }
     },

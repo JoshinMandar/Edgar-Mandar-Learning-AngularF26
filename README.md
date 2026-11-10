@@ -57,3 +57,10 @@ Angular CLI does not come with an end-to-end testing framework by default. You c
 ## Additional Resources
 
 For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+
+## API
+
+This project uses the [NHTSA vPIC API](https://vpic.nhtsa.dot.gov/api/), a free US government vehicle API that needs no API key.
+
+Example request:
+https://vpic.nhtsa.dot.gov/api/vehicles/getmodelsformake/honda?format=json
