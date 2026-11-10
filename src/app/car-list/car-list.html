@@ -1,16 +1,17 @@
 <div class="car-list">
   <h2>Carlist</h2>
-  <p>Number of black cars: {{ blackCarCount() }}</p>
-  @for (car of carList (); track car.id) {
-<app-car-list-item [car]="car"
-(contentEvent)="carEvent($event)"/>
-  } @empty {
-
-    <p>NO CARRRSSSSSSSS!</p>
-  }
-  <h2>Black cars</h2>
-  @for (car of blackCars(); track car.id) {
-    <p>{{ car.name }} - {{ car.colour }}</p>
+  @if (isLoading()) {
+    <p>Loading cars...</p>
+  } @else if (error()) {
+    <p class="error">Could not load cars.</p>
+  } @else {
+    <p>Number of black cars: {{ blackCarCount() }}</p>
+    @for (car of carList (); track car.id) {
+      <app-car-list-item [car]="car" (contentEvent)="carEvent($event)"/>} @empty {
+      <p>NO CARRRSSSSSSSS!</p>}
+    <h2>Black cars</h2>
+    @for (car of blackCars(); track car.id) {
+      <p>{{ car.name }} - {{ car.colour }}</p>}
   }
   <p class="data-source">
     Data source (placeholder): {{ config.apiBaseURL }}

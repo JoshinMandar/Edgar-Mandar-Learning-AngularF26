@@ -26,4 +26,6 @@ export class CarList {
   protected blackCars = this.service.blackCars
   protected blackCarCount = this.service.blackCarCount
   protected config = inject(USER_TOKEN);
+  protected isLoading = this.service.isLoading;
+  protected error = this.service.error;
 }

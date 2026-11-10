@@ -24,3 +24,10 @@ export interface ApiCarResponse {
 export function toCar(m: ApiCarModel): Car {
   return { id: m.Model_ID, name: m.Model_Name, carModel: m.Make_Name };
 }
+export function isApiCarModel(x: unknown): x is ApiCarModel {
+  const m = x as ApiCarModel;
+  return !!m
+    && typeof m.Model_ID === 'number'
+    && typeof m.Model_Name === 'string'
+    && typeof m.Make_Name === 'string';
+}

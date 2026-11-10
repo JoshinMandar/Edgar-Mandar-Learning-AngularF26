@@ -1,7 +1,6 @@
 import { ApplicationConfig, provideBrowserGlobalErrorListeners,InjectionToken } from '@angular/core';
 import { provideRouter, withComponentInputBinding } from '@angular/router';
 import { routes } from './app.routes';
-import {MockContentService} from './service/MockContentService';
 import {carList} from './service/car';
 
 export  interface AppConfig {
@@ -21,7 +20,7 @@ export const appConfig: ApplicationConfig = {
     }
     },
 
-    { provide :carList, useClass: MockContentService },
+    carList,
     provideBrowserGlobalErrorListeners(),
     provideRouter(routes),
     provideRouter(routes, withComponentInputBinding())

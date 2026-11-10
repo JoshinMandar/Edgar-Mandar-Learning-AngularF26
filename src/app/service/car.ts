@@ -1,71 +1,31 @@
-import {computed, effect, inject, Injectable, Service, signal} from '@angular/core';
-import {Car} from '../model/car';
-import {vi} from 'vitest';
-import {USER_TOKEN} from '../app.config';
+import { computed, effect, inject, Injectable } from '@angular/core';
+import { httpResource } from '@angular/common/http';
+import { ApiCarResponse, Car, isApiCarModel, toCar } from '../model/car';
+import { USER_TOKEN } from '../app.config';
 
 @Injectable()
 export class carList {
   private config = inject(USER_TOKEN);
+  private make = 'honda';
 
-  private car = signal<Car[]>([
+  private carResource = httpResource<Car[]>(
+    () => ({
+      url: `${this.config.apiBaseURL}/getmodelsformake/${this.make}`,
+      params: { format: 'json' },
+    }),
     {
-      id: 1,
-      vin: '12981273',
-      name: 'Rav4',
-      madeIn: 'Japan',
-      carModel: 'Toyota',
-      colour: 'gray'
-
-
+      parse: (raw: unknown): Car[] => {
+        const results = (raw as ApiCarResponse | null)?.Results;
+        if (!Array.isArray(results)) return [];
+        return results.filter(isApiCarModel).slice(0, 20).map(toCar);},
+      defaultValue: [],
     },
-    {
-      id: 2,
-      vin: '1245125123',
-      name: 'supra',
-      madeIn: 'Japan',
-      carModel: 'Toyota',
-      colour: 'blue',
-    },
-    {
-      id: 3,
-      vin: '243523532',
-      name: 'Nissan GT R',
-      madeIn: 'Japan',
-      carModel: 'Nissan',
-      colour: 'white',
+  );
+  private car = this.carResource.value;
 
-    },
-    {
-      id: 4,
-      vin: '4124124',
-      name: 'Raptor',
-      madeIn: 'USA',
-      carModel: 'Ford',
-      colour: 'black',
-
-
-    },
-    {
-      id: 5,
-      vin: '4124142',
-      name: 'M5',
-      madeIn: 'Germany',
-      carModel: 'Bmw',
-      colour: 'black',
-
-    },
-    {
-      id: 6,
-      vin: '124124',
-      name: 'Civic ',
-      madeIn: 'Japan',
-      carModel: 'Honda',
-      colour: 'black',
-
-    },
-  ]);
-
-  carList = this.car.asReadonly();
+  carList = computed(() => (this.carResource.error() ? [] : this.car()));
+  isLoading = this.carResource.isLoading;
+  error = this.carResource.error;
 
   blackCars = computed(() =>
     this.carList().filter(c => c.colour === 'black'));
@@ -74,22 +34,18 @@ export class carList {
   );
 
   addCar(c: Car) {
-    this.car.update(list => [...list, c])
-
+    this.car.update(list => [...list, c]);
   }
   updateCar(updated: Car) {
     this.car.update(list => list.map(c => (c.id === updated.id ? updated : c)));
   }
-
   removeCar(id: number) {
     this.car.update(list => list.filter(car => car.id !== id));
   }
 
   constructor() {
-
     effect(() => {
-      console.log('Number of cars:', this.car().length);
+      console.log('Number of cars:', this.carList().length);
     });
-
   }
 }
