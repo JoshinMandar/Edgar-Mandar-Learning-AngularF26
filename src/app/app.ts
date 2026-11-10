@@ -4,6 +4,7 @@ import {CarList} from './car-list/car-list';
 import {RouterLink, RouterOutlet} from '@angular/router';
 import { EditLock } from './service/edit-lock';
 import { LoadingService } from './service/loading';
+import { ErrorService } from './service/error';
 @Component({
   selector: 'app-root',
   styleUrl: './app.css',
@@ -14,6 +15,7 @@ export class App {
   protected title = 'Car type';
   protected lock = inject(EditLock);
   protected loading = inject(LoadingService);
+  protected errors = inject(ErrorService);
 }
 
  /* protected carList: Car []   = [

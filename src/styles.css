@@ -1,2 +1,111 @@
 /* You can add global styles to this file, and also import other style files */
-  
+body {
+  margin: 0;
+  font-family: system-ui, Arial, sans-serif;
+  background: #f4f6f8;
+  color: #222;
+}
+
+nav {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 12px 24px;
+  background: #1f3a5f;
+}
+nav a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 600;
+}
+nav a:hover {
+  text-decoration: underline;
+}
+nav span {
+  margin-left: auto;
+  color: #ffd166;
+  font-weight: 600;
+}
+
+.container {
+  max-width: 800px;
+  margin: 24px auto;
+  padding: 0 16px;
+}
+h2 {
+  color: #1f3a5f;
+}
+.Car-card button {
+  margin-left: 12px;
+}
+
+
+.Car-card {
+  background: #fff;
+  border: 1px solid #d9dee3;
+  border-radius: 8px;
+  padding: 12px 16px;
+  margin-bottom: 12px;
+}
+.Car-card h3 {
+  margin: 0 0 8px;
+}
+.Car-card a {
+  color: #1f3a5f;
+}
+.Car-card p {
+  margin: 4px 0;
+  color: #555;
+}
+
+/* buttons */
+button {
+  background: #1f3a5f;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  padding: 6px 12px;
+  cursor: pointer;
+}
+button:hover {
+  background: #2d5286;
+}
+button:disabled {
+  background: #aab4c0;
+  cursor: not-allowed;
+}
+
+
+form div {
+  margin-bottom: 12px;
+}
+label {
+  display: block;
+  font-weight: 600;
+}
+input {
+  display: block;
+  width: 100%;
+  max-width: 320px;
+  padding: 6px 8px;
+  margin-top: 4px;
+  border: 1px solid #b8c0c8;
+  border-radius: 4px;
+}
+.feature-row input {
+  display: inline-block;
+}
+.error {
+  color: #b3261e;
+  margin: 4px 0;
+}
+
+
+.error-banner {
+  background: #fde2e2;
+  color: #8a1f1f;
+  padding: 8px 12px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}

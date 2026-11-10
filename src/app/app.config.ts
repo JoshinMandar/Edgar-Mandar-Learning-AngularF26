@@ -4,6 +4,7 @@ import { routes } from './app.routes';
 import {carList} from './service/car';
 import { provideHttpClient, withInterceptors } from '@angular/common/http';
 import { loadingInterceptor } from './loading-interceptor';
+import { errorInterceptor } from './error-interceptor';
 
 export  interface AppConfig {
   apiBaseURL: string;
@@ -26,7 +27,8 @@ export const appConfig: ApplicationConfig = {
     provideBrowserGlobalErrorListeners(),
     provideRouter(routes),
     provideRouter(routes, withComponentInputBinding()),
-    provideHttpClient(withInterceptors([loadingInterceptor]))
+    provideHttpClient(withInterceptors([loadingInterceptor])),
+    provideHttpClient(withInterceptors([loadingInterceptor, errorInterceptor]))
 
   ]
 };
