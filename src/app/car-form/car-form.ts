@@ -1,4 +1,6 @@
-import { Component, computed, effect, inject, input, untracked } from '@angular/core';
+import {
+  afterNextRender, Component, computed, effect, ElementRef, inject, input, untracked, viewChild,
+} from '@angular/core';
 import {
   AbstractControl, FormBuilder, ReactiveFormsModule, ValidationErrors, ValidatorFn, Validators,
 } from '@angular/forms';
@@ -28,6 +30,7 @@ export class CarForm {
   private fb = inject(FormBuilder);
   private service = inject(carList);
   private router = inject(Router);
+  private firstField = viewChild<ElementRef<HTMLInputElement>>('firstField');
 
   id = input<string>();
   protected isEdit = computed(() => this.id() !== undefined);
@@ -67,6 +70,11 @@ export class CarForm {
   });
 
   constructor() {
+
+    //GReuired
+    afterNextRender(() => {
+      this.firstField()?.nativeElement.focus();
+    });
     effect(() => {
       const car = this.editingCar();
       if (!car) return;

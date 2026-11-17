@@ -2,7 +2,7 @@
 
 <form [formGroup]="form" (ngSubmit)="onSubmit()">
   <div>
-    <label>VIN <input formControlName="vin" /></label>
+    <label>VIN <input #FirstField formControlName="vin" /></label>
     @if (form.controls.vin.touched) {
       @if (form.controls.vin.hasError('required')) {
         <p class="error">VIN is required.</p>
