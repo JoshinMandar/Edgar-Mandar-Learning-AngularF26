@@ -68,7 +68,7 @@ https://vpic.nhtsa.dot.gov/api/vehicles/getmodelsformake/honda?format=json
 I chose Option B, httpResource. It gives me loading and error states
 as signals, so I don't need subscribe
 code. Its value is a writable signal, so my add, edit and delete methods 
-still work on the same list.
+still work on the same list.66
 
 Local changes disappear on refresh because edits and deletes only
 change data in the browser's memory. 
