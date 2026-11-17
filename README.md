@@ -76,11 +76,31 @@ change data in the browser's memory.
 
 ## Lazy loading
 
-### Before
-```
+#Before
+
 Initial chunk files | Names         |  Raw size | Estimated transfer size
 main-2VWYL26S.js    | main          | 332.55 kB |                88.90 kB
 styles-J7R24434.css | styles        |   1.19 kB |               403 bytes
 
                     | Initial total | 333.74 kB |                89.30 kB
-```
+
+#After
+
+Initial chunk files | Names         |  Raw size | Estimated transfer size
+main-VXQGPOKG.js    | main          | 300.61 kB |                82.59 kB
+styles-J7R24434.css | styles        |   1.19 kB |               403 bytes
+
+                    | Initial total | 301.80 kB |                82.99 kB
+
+Lazy chunk files    | Names         |  Raw size | Estimated transfer size
+chunk-CSMF3oOQ.js   | car-form      |  46.03 kB |                10.46 kB
+chunk-4y5S_R9u.js   | car-detail    |   2.17 kB |               961 bytes
+chunk-CUYLP8Hl.js   | not-found     | 303 bytes |               303 bytes
+
+Application bundle generation complete. [8.989 seconds] - 2026-11-17T19:12:41.780Z
+
+▲ [WARNING] NG8113: MakeCountryPipe is not used within the template of CarDetail [plugin angular-compiler]
+
+    src/app/car-detail/car-detail.ts:8:54:
+      8 │ ...ports: [RouterLink, TitleCasePipe, UpperCasePipe, MakeCountryPipe],
+        ╵                                                      ~~~~~~~~~~~~~~~
