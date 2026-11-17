@@ -1,5 +1,5 @@
 <div class="Car-card">
-  <h3><a [routerLink]="['/cars', car().id]">{{ car().name }}</a></h3>
+  <h3><a [routerLink]="['/cars', car().id]">{{ car().name | truncate:15 }}</a></h3>
   <p>Make: {{ car().carModel | titlecase }}</p>
 
   @switch (car().carModel| titlecase) {

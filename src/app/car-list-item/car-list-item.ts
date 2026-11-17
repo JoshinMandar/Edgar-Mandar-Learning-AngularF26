@@ -2,12 +2,13 @@ import {Component, input,output} from '@angular/core';
 import {Car} from '../model/car';
 import { RouterLink } from '@angular/router';
 import {TitleCasePipe} from '@angular/common';
+import { TruncatePipe } from '../pipes/truncate-pipe';
 export interface ContentEvent {
   id: number;
 
 }
 @Component({
-  imports: [RouterLink, TitleCasePipe],
+  imports: [RouterLink, TitleCasePipe, TruncatePipe],
   selector: 'app-car-list-item',
   styleUrl: './car-list-item.css',
   templateUrl: './car-list-item.html',
