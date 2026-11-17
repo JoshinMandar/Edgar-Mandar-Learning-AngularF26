@@ -72,3 +72,15 @@ still work on the same list.66
 
 Local changes disappear on refresh because edits and deletes only
 change data in the browser's memory. 
+
+
+## Lazy loading
+
+### Before
+```
+Initial chunk files | Names         |  Raw size | Estimated transfer size
+main-2VWYL26S.js    | main          | 332.55 kB |                88.90 kB
+styles-J7R24434.css | styles        |   1.19 kB |               403 bytes
+
+                    | Initial total | 333.74 kB |                89.30 kB
+```
