@@ -1,7 +1,8 @@
 <div class="Car-card">
   <h3><a [routerLink]="['/cars', car().id]">{{ car().name }}</a></h3>
+  <p>Make: {{ car().carModel | titlecase }}</p>
 
-  @switch (car().carModel) {
+  @switch (car().carModel| titlecase) {
     @case ('Honda') { <span class="Honda">Civic </span> }
     @case ('Toyota') { <span class="Toyota">Supra </span> }
     @case ('Ford') { <span class="Ford">Raptors </span> }

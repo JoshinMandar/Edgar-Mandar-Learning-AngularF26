@@ -5,7 +5,8 @@
   } @else if (error()) {
     <p class="error">Could not load cars.</p>
   } @else {
-    <p>Number of black cars: {{ blackCarCount() }}</p>
+    <p>Showing {{ carList().length | number:'1.0-0' }} cars</p>
+    <p>Number of black cars: {{ blackCarCount() | number }}</p>
     @for (car of carList (); track car.id) {
       <app-car-list-item [car]="car" (contentEvent)="carEvent($event)"/>} @empty {
       <p>NO CARRRSSSSSSSS!</p>}

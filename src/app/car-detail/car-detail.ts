@@ -1,9 +1,10 @@
 import { Component, computed, inject, input, numberAttribute } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { carList } from '../service/car';
+import {TitleCasePipe, UpperCasePipe} from '@angular/common';
 @Component({
   imports: [
-    RouterLink
+    RouterLink, TitleCasePipe, UpperCasePipe
   ],
   selector: 'app-car-detail',
   styleUrl: './car-detail.css',

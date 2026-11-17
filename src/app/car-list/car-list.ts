@@ -2,10 +2,12 @@ import { Component, inject} from '@angular/core';
 import {CarListItem, ContentEvent} from '../car-list-item/car-list-item';
 import {carList} from '../service/car';
 import {USER_TOKEN,} from '../app.config';
+import { DecimalPipe } from '@angular/common';
 
 @Component({
   imports: [
-    CarListItem
+    CarListItem,
+    DecimalPipe
   ],
   selector: 'app-car-list',
   styleUrl: './car-list.css',
