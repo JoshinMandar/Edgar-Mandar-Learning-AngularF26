@@ -16,5 +16,7 @@
   }
 
   <a [routerLink]="['/cars/edit', car().id]">Edit</a>
-  <button type="button" (click)="removeCar()">Delete</button>
+  <button type="button"
+          [appConfirm]="'Delete ' + car().name + '?'"
+          (confirmed)="removeCar()">Delete</button>
 </div>

@@ -4,12 +4,13 @@ import { RouterLink } from '@angular/router';
 import {TitleCasePipe} from '@angular/common';
 import { TruncatePipe } from '../pipes/truncate-pipe';
 import { Highligh } from '../directives/highligh';
+import { Confirm } from '../directives/confirm';
 export interface ContentEvent {
   id: number;
 
 }
 @Component({
-  imports: [RouterLink, TitleCasePipe, TruncatePipe, Highligh],
+  imports: [RouterLink, TitleCasePipe, TruncatePipe, Highligh, Confirm],
   selector: 'app-car-list-item',
   styleUrl: './car-list-item.css',
   templateUrl: './car-list-item.html',
