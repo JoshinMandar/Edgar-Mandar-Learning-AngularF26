@@ -104,3 +104,7 @@ Application bundle generation complete. [8.989 seconds] - 2026-11-17T19:12:41.78
     src/app/car-detail/car-detail.ts:8:54:
       8 │ ...ports: [RouterLink, TitleCasePipe, UpperCasePipe, MakeCountryPipe],
         ╵                                                      ~~~~~~~~~~~~~~~
+
+## localStorage
+
+I store only data the user creates: the list of saved car ids (`car-explorer.saved`, e.g. `[1863,1861]`) and the car list's sort order (`car-explorer.sortOrder`, e.g. `"az"`). The car data itself is not stored because it comes from the NHTSA API on every page load, so saving it would only waste space and go out of date. Secrets such as passwords or auth tokens must never be stored in localStorage, because any script running on the page can read it.
