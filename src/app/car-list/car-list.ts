@@ -1,7 +1,7 @@
 import { Component, inject} from '@angular/core';
 import {CarListItem, ContentEvent} from '../car-list-item/car-list-item';
 import {carList} from '../service/car';
-import {USER_TOKEN,} from '../app.config';
+import {USER_TOKEN,} from '../app-token';
 import { DecimalPipe } from '@angular/common';
 import { Highligh } from '../directives/highligh';
 

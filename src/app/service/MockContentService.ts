@@ -1,7 +1,7 @@
 import {computed, effect, inject, Injectable, Service, signal} from '@angular/core';
 import {Car} from '../model/car';
 import {vi} from 'vitest';
-import {USER_TOKEN} from '../app.config';
+import {USER_TOKEN} from '../app-token';
 
 @Injectable()
 export class MockContentService  {

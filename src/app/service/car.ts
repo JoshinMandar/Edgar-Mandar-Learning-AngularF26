@@ -1,7 +1,7 @@
 import { computed, effect, inject, Injectable } from '@angular/core';
 import { httpResource } from '@angular/common/http';
 import { ApiCarResponse, Car, isApiCarModel, toCar } from '../model/car';
-import { USER_TOKEN } from '../app.config';
+import { USER_TOKEN } from '../app-token';
 
 @Injectable()
 export class carList {
