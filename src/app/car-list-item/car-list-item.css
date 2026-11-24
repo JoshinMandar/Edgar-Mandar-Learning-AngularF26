@@ -1,4 +1,3 @@
-/* The host element gets the highlight from the Highligh host directive */
 :host {
   display: block;
   border-radius: 8px;
@@ -9,7 +8,6 @@
   margin-bottom: 0;
 }
 
-/* Let the host's highlight colour show through the white card while hovered */
 :host(.highlighted) .Car-card {
   background: transparent;
 }

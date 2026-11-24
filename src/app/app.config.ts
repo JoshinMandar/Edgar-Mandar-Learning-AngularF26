@@ -7,7 +7,6 @@ import { loadingInterceptor } from './loading-interceptor';
 import { errorInterceptor } from './error-interceptor';
 import { USER_TOKEN } from './app-token';
 
-// Re-exported so existing imports from './app.config' keep working.
 export { USER_TOKEN } from './app-token';
 export type { AppConfig } from './app-token';
 

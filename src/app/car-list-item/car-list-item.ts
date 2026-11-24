@@ -11,7 +11,6 @@ export interface ContentEvent {
 }
 @Component({
   imports: [RouterLink, TitleCasePipe, TruncatePipe, Confirm],
-  // Every car card highlights itself on hover; the colour is set with highlightColor="..."
   hostDirectives: [
     { directive: Highligh, inputs: ['appHighlight: highlightColor'] },
   ],

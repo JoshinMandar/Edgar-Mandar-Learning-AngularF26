@@ -34,7 +34,6 @@ export class CarList {
   protected isLoading = this.service.isLoading;
   protected error = this.service.error;
 
-  // Remembered sort order (saved in localStorage by the Preferences service)
   private prefs = inject(Preferences);
   protected sortOrder = this.prefs.sortOrder;
 
