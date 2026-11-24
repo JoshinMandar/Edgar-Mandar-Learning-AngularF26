@@ -3,11 +3,6 @@ import { effect, Service, signal } from '@angular/core';
 export type SortOrder = 'default' | 'az' | 'za';
 
 const SORT_ORDERS: readonly SortOrder[] = ['default', 'az', 'za'];
-
-/**
- * Remembers the user's sort order for the car list so it survives a refresh.
- * Uses the same load-once + effect() pattern as SavedService.
- */
 @Service()
 export class Preferences {
   private readonly storageKey = 'car-explorer.sortOrder';
@@ -21,7 +16,6 @@ export class Preferences {
       try {
         localStorage.setItem(this.storageKey, JSON.stringify(value));
       } catch {
-        // Storage full or blocked: keep the setting in memory only.
       }
     });
   }

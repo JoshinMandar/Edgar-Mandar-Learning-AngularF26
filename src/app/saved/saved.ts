@@ -17,7 +17,6 @@ export class Saved {
 
   protected isLoading = this.cars.isLoading;
 
-  /** Saved ids looked up in the current car list; ids no longer in the list are skipped. */
   protected savedCars = computed(() => {
     const list = this.cars.carList();
     return this.saved
