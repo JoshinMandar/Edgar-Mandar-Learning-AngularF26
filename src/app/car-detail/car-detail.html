@@ -3,7 +3,7 @@
   <p>Model: {{ c.carModel | titlecase }}</p>
   @if (c.madeIn) {<p>Made in: {{ c.madeIn }}</p>}
   @if (c.colour) {<p>Colour: {{ c.colour | titlecase }}</p>}
-  @if (c.vin) {<p>VIN: {{ c.vin | makeCountry | uppercase}}</p>} // (pipe uppercase)
+  @if (c.vin) {<p>VIN: {{ c.vin | makeCountry | uppercase}}</p>}
 
   @if (c.features?.length) {
     <h3>Features</h3>
