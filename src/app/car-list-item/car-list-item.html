@@ -1,4 +1,4 @@
-<div class="Car-card" appHighlight="#FDE7C8">
+<div class="Car-card">
   <h3><a [routerLink]="['/cars', car().id]">{{ car().name | truncate:15 }}</a></h3>
   <p>Make: {{ car().carModel | titlecase }}</p>
   @switch (car().carModel| titlecase) {
