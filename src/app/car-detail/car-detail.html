@@ -14,6 +14,9 @@
     </ul>
   }
 
+  <button type="button" (click)="saved.toggle(c.id)">
+    {{ saved.isSaved(c.id) ? 'Unsave' : 'Save' }}
+  </button>
   <a [routerLink]="['/cars/edit', c.id]">Edit</a>
 } @else {
   <p>No car found with id {{ id() }}.</p>

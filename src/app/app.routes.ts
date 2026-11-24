@@ -21,6 +21,10 @@ export const routes: Routes = [
     resolve: { loadedCar: carResolver },
   },
   {
+    path: 'saved',
+    loadComponent: () => import('./saved/saved').then(m => m.Saved),
+  },
+  {
     path: '**',
     loadComponent: () => import('./not-found/not-found').then(m => m.NotFound),
   },

@@ -3,6 +3,7 @@ import { RouterLink } from '@angular/router';
 import { TitleCasePipe, UpperCasePipe } from '@angular/common';
 import { carList } from '../service/car';
 import { MakeCountryPipe } from '../pipes/make-country-pipe';
+import { SavedService } from '../service/saved-service';
 
 @Component({
   imports: [RouterLink, TitleCasePipe, UpperCasePipe, MakeCountryPipe],
@@ -14,6 +15,7 @@ export class CarDetail implements OnInit, OnDestroy {
   id = input.required({ transform: numberAttribute });
 
   private service = inject(carList);
+  protected saved = inject(SavedService);
 
   private openedAt = 0;
   private carName = '';
