@@ -108,3 +108,5 @@ Application bundle generation complete. [8.989 seconds] - 2026-11-17T19:12:41.78
 ## localStorage
 
 I store only data the user creates: the list of saved car ids (`car-explorer.saved`, e.g. `[1863,1861]`) and the car list's sort order (`car-explorer.sortOrder`, e.g. `"az"`). The car data itself is not stored because it comes from the NHTSA API on every page load, so saving it would only waste space and go out of date. Secrets such as passwords or auth tokens must never be stored in localStorage, because any script running on the page can read it.
+
+Bonus: cars added with the Add Car form are kept in their own list and stored under `car-explorer.myCars`, so they survive a refresh. Cars from the API are never written to storage; editing or deleting an API car only changes it in memory until the next page load.
