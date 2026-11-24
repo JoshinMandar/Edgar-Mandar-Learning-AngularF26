@@ -3,11 +3,13 @@ import {CarListItem, ContentEvent} from '../car-list-item/car-list-item';
 import {carList} from '../service/car';
 import {USER_TOKEN,} from '../app.config';
 import { DecimalPipe } from '@angular/common';
+import { Highligh } from '../directives/highligh';
 
 @Component({
   imports: [
     CarListItem,
-    DecimalPipe
+    DecimalPipe,
+    Highligh
   ],
   selector: 'app-car-list',
   styleUrl: './car-list.css',

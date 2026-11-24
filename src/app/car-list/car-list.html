@@ -12,7 +12,7 @@
       <p>NO CARRRSSSSSSSS!</p>}
     <h2>Black cars</h2>
     @for (car of blackCars(); track car.id) {
-      <p>{{ car.name }} - {{ car.colour }}</p>}
+      <p appHighlight>{{ car.name }} - {{ car.colour }}</p>}
   }
   <p class="data-source">
     Data source (placeholder): {{ config.apiBaseURL }}
