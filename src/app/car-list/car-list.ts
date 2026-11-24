@@ -1,4 +1,5 @@
-import { Component, inject} from '@angular/core';
+import { Component, computed, inject} from '@angular/core';
+import { Preferences, SortOrder } from '../service/preferences';
 import {CarListItem, ContentEvent} from '../car-list-item/car-list-item';
 import {carList} from '../service/car';
 import {USER_TOKEN,} from '../app-token';
@@ -32,4 +33,21 @@ export class CarList {
   protected config = inject(USER_TOKEN);
   protected isLoading = this.service.isLoading;
   protected error = this.service.error;
+
+  // Remembered sort order (saved in localStorage by the Preferences service)
+  private prefs = inject(Preferences);
+  protected sortOrder = this.prefs.sortOrder;
+
+  protected sortedCars = computed(() => {
+    const list = this.carList();
+    switch (this.sortOrder()) {
+      case 'az': return [...list].sort((a, b) => a.name.localeCompare(b.name));
+      case 'za': return [...list].sort((a, b) => b.name.localeCompare(a.name));
+      default: return list;
+    }
+  });
+
+  setSortOrder(value: string): void {
+    this.prefs.setSortOrder(value as SortOrder);
+  }
 }

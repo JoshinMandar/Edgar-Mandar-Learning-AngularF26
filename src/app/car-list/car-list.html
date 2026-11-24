@@ -7,7 +7,15 @@
   } @else {
     <p>Showing {{ carList().length | number:'1.0-0' }} cars</p>
     <p>Number of black cars: {{ blackCarCount() | number }}</p>
-    @for (car of carList (); track car.id) {
+    <label class="sort">
+      Sort by name
+      <select [value]="sortOrder()" (change)="setSortOrder($any($event.target).value)">
+        <option value="default">API order</option>
+        <option value="az">A to Z</option>
+        <option value="za">Z to A</option>
+      </select>
+    </label>
+    @for (car of sortedCars(); track car.id) {
       <app-car-list-item [car]="car" (contentEvent)="carEvent($event)"/>} @empty {
       <p>NO CARRRSSSSSSSS!</p>}
     <h2>Black cars</h2>
